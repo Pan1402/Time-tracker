@@ -1,0 +1,236 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --blue: hsl(246, 80%, 60%);
+  --light-red: hsl(15, 100%, 70%);
+  --Soft-blue-play: hsl(195, 74%, 62%);
+  --Light-red-study: hsl(348, 100%, 68%);
+  --Lime-green-exrcise: hsl(145, 58%, 55%);
+  --Violet-social: hsl(264, 64%, 52%);
+  --Soft-orange-self-care: hsl(43, 84%, 65%);
+
+  --Very-dark-blue: hsl(226, 43%, 10%);
+  --Dark-blue: hsl(235, 46%, 20%);
+  --Desaturated-blue: hsl(235, 45%, 61%);
+  --Pale-Blue: hsl(236, 100%, 87%);
+  --white: #fff;
+}
+
+body {
+  font-family: "Rubik", sans-serif;
+  font-size: 1.12rem;
+  padding: 80px 24px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--Very-dark-blue);
+}
+
+.tracker-card {
+  border-radius: 15px;
+  margin-top: 10px;
+  position: relative;
+}
+
+.tracker-card--user {
+  background-color: var(--Dark-blue);
+  border-radius: 15px;
+  color: var(--white);
+}
+
+.tracker__user {
+  display: flex;
+  align-items: center;
+  padding: 32px 40px;
+  border-radius: 15px;
+  background-color: var(--blue);
+  gap: 20px;
+}
+
+.tracker__user-subheading {
+  color: var(--Pale-Blue);
+}
+
+.tracker__user-name {
+  font-weight: 300;
+}
+
+.tracker__user-img img {
+  width: 64px;
+  height: 64px;
+  border: 2px solid var(--white);
+  border-radius: 50%;
+}
+
+.tracker-card__options {
+  display: flex;
+  justify-content: space-between;
+  padding: 32px 40px;
+  color: var(--Desaturated-blue);
+  cursor: pointer;
+}
+
+.tracker-card--work {
+  background-color: var(--light-red);
+  padding-top: 38px;
+}
+
+.tracker-card--play {
+  background-color: var(--Soft-blue-play);
+  padding-top: 38px;
+}
+
+.tracker-card--study {
+  background-color: var(--Light-red-study);
+  padding-top: 38px;
+}
+
+.tracker-card--exercise {
+  background-color: var(--Lime-green-exrcise);
+  padding-top: 38px;
+}
+.tracker-card--care {
+  background-color: var(--Soft-orange-self-care);
+  padding-top: 38px;
+}
+
+.tracker-card--social {
+  background-color: var(--Violet-social);
+  padding-top: 38px;
+}
+
+.tracker-card__container {
+  padding: 24px;
+  background-color: var(--Dark-blue);
+  border-radius: 15px;
+  position: relative;
+  z-index: 2;
+}
+
+.active {
+  color: var(--white);
+}
+
+.tracker-card__activity {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tracker-card__activity-name {
+  color: var(--white);
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.tracker-card__data {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  color: var(--white);
+}
+
+.tracker-card__duration {
+  font-size: 32px;
+  font-weight: 300;
+}
+
+.tracker-card__duration--history {
+  color: var(--Pale-Blue);
+}
+
+.tracker-card__icon {
+  position: absolute;
+  top: 0;
+  right: 10px;
+  width: 72px;
+  opacity: 0.5;
+}
+
+@media screen and (min-width: 750px) {
+  .tracker-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .tracker-card:first-of-type {
+    width: calc(100% - 20px);
+  }
+
+  .tracker-card {
+    width: calc(50% - 20px);
+  }
+}
+@media screen and (min-width: 1024px) {
+  .tracker-container {
+    display: grid;
+    justify-content: center;
+    grid-template-areas:
+      "card1 card2 card3 card4"
+      "card1 card5 card6 card7";
+  }
+
+  .tracker-card--user {
+    max-width: 255px;
+    justify-self: end;
+  }
+
+  .tracker__user {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .tracker-card__options {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .tracker-card:not(.tracker-card--user) {
+    display: flex;
+
+    width: 100%;
+  }
+
+  .tracker-card__container {
+    width: 100%;
+  }
+
+  .tracker-card__data {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .tracker-card--user {
+    grid-area: card1;
+  }
+
+  .tracker-card--work {
+    grid-area: card2;
+  }
+  .tracker-card--play {
+    grid-area: card3;
+  }
+  .tracker-card--study {
+    grid-area: card4;
+  }
+  .tracker-card--excercise {
+    grid-area: card5;
+  }
+  .tracker-card--social {
+    grid-area: card6;
+  }
+  .tracker-card--care {
+    grid-area: card7;
+  }
+}
